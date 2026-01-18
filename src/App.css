@@ -1,0 +1,325 @@
+/* ---------- GENERAL BODY STYLING ---------- */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  background: #adadad;
+  background: linear-gradient(
+    90deg,
+    rgba(173, 173, 173, 1) 0%,
+    rgba(173, 173, 173, 1) 33%,
+    rgba(110, 105, 105, 1) 100%
+  );
+}
+
+body.dark-mode {
+  background: radial-gradient(circle at top, #1c2331 0%, #0e1117 100%);
+  background-attachment: fixed;
+  color: white;
+}
+
+/* ---------- NAVIGATION UNDERLINE ANIMATION ---------- */
+.nav-link {
+  position: relative;
+  padding-bottom: 2px;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  background-color: white;
+  height: 2px;
+  width: 0;
+  left: 0;
+  bottom: -2px;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ---------- PLACEHOLDER COLOR LOGIC ---------- */
+body.dark-mode textarea::placeholder,
+body.dark-mode input::placeholder {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+textarea::placeholder {
+  color: #6c757d;
+}
+
+/* BUTTONS */
+.btn {
+  border-radius: 8px;
+  font-weight: 500;
+  transition: transform 0.2s;
+}
+.btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.btn-ai {
+  background: linear-gradient(45deg, #6a11cb 0%, #2575fc 100%);
+  border: none;
+  color: white;
+}
+
+/* MIC BLINKING */
+.blink-mic {
+  animation: blinker 1s linear infinite;
+  background-color: #ff0000 !important;
+  border-color: #ff0000 !important;
+}
+@keyframes blinker {
+  50% {
+    opacity: 0.4;
+  }
+}
+
+textarea {
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+body.dark-mode textarea {
+  background-color: #0d1117 !important;
+  color: #c9d1d9 !important;
+  border: 1px solid #30363d !important;
+}
+
+/* Dropdown styling for dark mode */
+body.dark-mode .dropdown-menu {
+  background-color: #1c2331;
+  border: 1px solid #30363d;
+}
+body.dark-mode .dropdown-item {
+  color: white;
+}
+body.dark-mode .dropdown-item:hover {
+  background-color: #2575fc;
+}
+/* ---------- EXACT CONTACT PAGE STYLING ---------- */
+.contact-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 5%;
+  color: white;
+}
+
+.contact-wrapper h1 {
+  color: #494b4b;
+  font-size: clamp(26px, 4vw, 32px);
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.buttons-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 250px;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease,
+    background-color 0.2s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+}
+
+.social-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+.whatsapp {
+  background-color: #25d366;
+}
+.whatsapp:hover {
+  background-color: #20b857;
+  transform: translateY(-3px);
+}
+
+.linkedin {
+  background-color: #0077b5;
+}
+.linkedin:hover {
+  background-color: #005983;
+  transform: translateY(-3px);
+}
+
+.instagram {
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+}
+.instagram:hover {
+  transform: translateY(-3px);
+}
+
+.query-section {
+  margin-top: 30px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.query-section h2 {
+  margin-bottom: 15px;
+  font-size: clamp(20px, 3vw, 24px);
+  color: #494b4b;
+}
+
+.query-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.query-form input,
+.query-form textarea {
+  width: 100%;
+  padding: 9px;
+  border-radius: 5px;
+  border: none;
+  font-size: 15px;
+  background-color: white;
+  color: black;
+}
+
+.query-form button {
+  background-color: #007bff;
+  color: white;
+  padding: 9px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  width: 120px;
+  align-self: center;
+}
+
+.query-form button:hover {
+  background-color: #0056b3;
+}
+/* This targets the specific class we added to the form in Contact.js */
+.query-form-dark input::placeholder,
+.query-form-dark textarea::placeholder {
+  color: white !important;
+  opacity: 1 !important;
+}
+#form-success {
+  margin-top: 12px;
+  color: #494b4b;
+  font-weight: bold;
+}
+/* ---------- RESPONSIVE RATIO (MOBILE, TABLET, PC) ---------- */
+
+/* This ensures the main container and contact wrapper don't hit screen edges on mobile */
+.container,
+.contact-wrapper {
+  max-width: 100%;
+  overflow-x: hidden;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+
+/* Adjustments for Tablets and Phones (Screens smaller than 991px) */
+@media (max-width: 991px) {
+  /* Stack the about section columns vertically */
+  .about-container .row {
+    flex-direction: column;
+  }
+
+  .about-container .col-md-6 {
+    width: 100%;
+  }
+
+  /* Make the Navbar links easier to tap */
+  .nav-link {
+    margin: 5px 0;
+  }
+}
+
+/* Specific Adjustments for Mobile Phones (Screens smaller than 768px) */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.6rem !important;
+    text-align: center;
+  }
+
+  /* Make all buttons full-width so they are easy to press with a thumb */
+  .btn {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-bottom: 10px !important;
+    display: block;
+  }
+
+  /* Ensure the "More" dropdown button also spans the full width */
+  .btn-group {
+    display: block !important;
+    width: 100%;
+  }
+
+  .btn-group .btn {
+    width: 100%;
+  }
+
+  /* Center social buttons and query form on mobile */
+  .buttons-wrap {
+    max-width: 100% !important;
+  }
+
+  .social-btn {
+    width: 100%;
+  }
+
+  .query-section {
+    max-width: 100% !important;
+  }
+}
+
+/* General safety fix to prevent horizontal scroll */
+body,
+html {
+  overflow-x: hidden;
+  position: relative;
+}
+/* Ensure the hamburger menu items align nicely on mobile */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+  }
+
+  .nav-link {
+    margin: 10px 0 !important;
+  }
+
+  .form-check {
+    margin-top: 15px;
+  }
+}
